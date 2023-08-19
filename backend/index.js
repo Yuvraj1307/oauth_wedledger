@@ -64,7 +64,7 @@ app.get(
     }),
     function (req, res) {
       let user = req.user;
-       var token = jwt.sign({userID:user._id,email:user.email}, process.env.SECRET_KEY);
+       var token = jwt.sign({userID:user.id,email:user.email}, process.env.SECRET_KEY);
         res.redirect(`http://localhost:3000?token=${token}&userID=${user.id}&name=${user.name}`);
     }
   );
